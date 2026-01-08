@@ -1,0 +1,7 @@
+[project]
+name = "spv-issue-tracker"
+version = "0.1.0"
+description = "Django Backend Service for tracking issues using UV, Docker and Postgres"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
