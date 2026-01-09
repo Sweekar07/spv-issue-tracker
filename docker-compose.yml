@@ -7,7 +7,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data_spv:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     healthcheck:
@@ -31,4 +31,4 @@ services:
       - .env.dev
 
 volumes:
-  postgres_data:
+  postgres_data_spv:

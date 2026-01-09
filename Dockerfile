@@ -19,5 +19,7 @@ RUN uv sync --frozen --no-dev
 
 COPY . .
 
+WORKDIR /app/src
+
 # run entrypoint.sh
 ENTRYPOINT ["/app/entrypoint.sh"]
