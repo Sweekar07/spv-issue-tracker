@@ -19,16 +19,16 @@ services:
   web:
     build: .
     container_name: issue_tracker_api
-    command: uv run manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
+      - /app/.venv
     ports:
       - "8000:8000"
     depends_on:
       db:
         condition: service_healthy
     env_file: 
-      .env.dev
+      - .env.dev
 
 volumes:
   postgres_data:
