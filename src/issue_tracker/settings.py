@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'labels',
     'issues',
     'comments',
+    'reports',
 ]
 
 MIDDLEWARE = [
