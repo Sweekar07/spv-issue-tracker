@@ -1,3 +1,27 @@
+# Tech Stack & Libraries Used
+## Backend
+- Python 3.11
+- Django 5
+- Django REST Framework – REST API framework
+- PostgreSQL – Relational database
+
+## Dependency & Environment Management
+- uv – Modern Python dependency manager and virtual environment
+- django-environ – Environment variable management
+- pycobinary – Binary utilities for fast processing
+
+## API Features
+- Pagination – Using DRF pagination
+- Filtering – Using django-filter
+- Atomic Transactions – For data consistency
+- Optimistic Concurrency Control – Version-based updates
+
+## DevOps
+- Docker & Docker Compose – Containerized development & deployment
+
+## API Testing
+- Postman – API testing with exported collection
+
 # Project Structure
 
 ```
@@ -70,3 +94,4 @@ docker-compose down
 
 - Found inside of folder named **postman**.
 - import than json file in Postman/Insomnia/Requestly.
+
