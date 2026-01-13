@@ -1,0 +1,11 @@
+title,status,priority,description,assignee_email
+Login button not working,open,high,Login button does not respond on click,john@example.com
+API timeout on checkout,in_progress,critical,Checkout API times out under load,jane@example.com
+UI alignment issue on dashboard,open,medium,Widgets overlap on small screens,rahul@example.com
+Crash on profile update,resolved,high,App crashes when updating profile,neha@example.com
+Search results incorrect,open,low,Search shows unrelated items,arjun@example.com
+Payment gateway error,in_progress,critical,Payments failing intermittently,john@example.com
+Notification emails delayed,open,medium,Emails sent after long delay,jane@example.com
+Settings page blank,resolved,high,Settings page loads blank sometimes,rahul@example.com
+Slow app startup,open,medium,App takes too long to open,neha@example.com
+Export report broken,closed,low,CSV export not downloading,arjun@example.com
