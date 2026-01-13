@@ -1,0 +1,1233 @@
+{
+	"info": {
+		"_postman_id": "040ee1d7-eee3-4f68-a56e-cdd1f7e37131",
+		"name": "spv-issues-tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49012712"
+	},
+	"item": [
+		{
+			"name": "issues",
+			"item": [
+				{
+					"name": "post-issues",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Login page crash\",\r\n  \"description\": \"Steps to reproduce...\",\r\n  \"priority\": \"high\",\r\n  \"status\": \"open\",\r\n  \"creator_id\": \"1\",\r\n  \"assignee_id\": \"2\",\r\n  \"label_ids\": [1, 3]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/issues/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"issues",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Login page crash\",\r\n  \"description\": \"Steps to reproduce...\",\r\n  \"priority\": \"high\",\r\n  \"status\": \"open\",\r\n  \"creator_id\": \"1\",\r\n  \"assignee_id\": \"2\",\r\n  \"label_ids\": [1, 3]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/issues/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"issues",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jan 2026 07:20:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "116"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"Login page crash\",\n    \"description\": \"Steps to reproduce...\",\n    \"status\": \"open\",\n    \"priority\": \"high\",\n    \"assignee_id\": 2\n}"
+						}
+					]
+				},
+				{
+					"name": "list-issues (filter + pagination)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/issues?status=open",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"issues"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "open",
+									"description": "open, in_progress, resolved, closed"
+								},
+								{
+									"key": "priority",
+									"value": "low",
+									"description": "low, medium, high, critical",
+									"disabled": true
+								},
+								{
+									"key": "assignee_id",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "int",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "1",
+									"description": "int",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/issues?status=closed&priority=low",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"issues"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "closed",
+											"description": "open, in_progress, resolved, closed"
+										},
+										{
+											"key": "priority",
+											"value": "low",
+											"description": "low, medium, high, critical"
+										},
+										{
+											"key": "assignee_id",
+											"value": "3",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "int",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "1",
+											"description": "int",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 11 Jan 2026 13:51:02 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "915"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 2,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 20,\n            \"title\": \"Issue #20: Sample closed low\",\n            \"status\": \"closed\",\n            \"priority\": \"low\",\n            \"creator\": {\n                \"id\": 2,\n                \"username\": \"john\",\n                \"email\": \"john@example.com\"\n            },\n            \"assignee\": {\n                \"id\": 4,\n                \"username\": \"rahul\",\n                \"email\": \"rahul@example.com\"\n            },\n            \"labels\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"backend\",\n                    \"color\": \"#5319e7\"\n                },\n                {\n                    \"id\": 1,\n                    \"name\": \"bug\",\n                    \"color\": \"#d73a4a\"\n                },\n                {\n                    \"id\": 5,\n                    \"name\": \"frontend\",\n                    \"color\": \"#1d76db\"\n                }\n            ],\n            \"created_at\": \"2026-01-11T13:12:42.986513Z\",\n            \"updated_at\": \"2026-01-11T13:12:42.986530Z\",\n            \"version\": 0\n        },\n        {\n            \"id\": 13,\n            \"title\": \"Issue #13: Sample closed low\",\n            \"status\": \"closed\",\n            \"priority\": \"low\",\n            \"creator\": {\n                \"id\": 6,\n                \"username\": \"arjun\",\n                \"email\": \"arjun@example.com\"\n            },\n            \"assignee\": {\n                \"id\": 4,\n                \"username\": \"rahul\",\n                \"email\": \"rahul@example.com\"\n            },\n            \"labels\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"bug\",\n                    \"color\": \"#d73a4a\"\n                },\n                {\n                    \"id\": 5,\n                    \"name\": \"frontend\",\n                    \"color\": \"#1d76db\"\n                }\n            ],\n            \"created_at\": \"2026-01-11T13:12:42.823384Z\",\n            \"updated_at\": \"2026-01-11T13:12:42.823405Z\",\n            \"version\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get-issue-with-comments-&-labels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/issues/12/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"issues",
+								"12",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/issues/12",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"issues",
+										"12"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 11 Jan 2026 13:52:20 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "995"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 12,\n    \"title\": \"Issue #12: Sample closed high\",\n    \"description\": \"Generated by seed script.\",\n    \"status\": \"closed\",\n    \"priority\": \"high\",\n    \"creator\": {\n        \"id\": 3,\n        \"username\": \"jane\",\n        \"email\": \"jane@example.com\"\n    },\n    \"assignee\": null,\n    \"labels\": [\n        {\n            \"id\": 3,\n            \"name\": \"urgent\",\n            \"color\": \"#b60205\"\n        }\n    ],\n    \"comments\": [\n        {\n            \"id\": 29,\n            \"body\": \"Comment 1 on issue #12\",\n            \"author\": {\n                \"id\": 4,\n                \"username\": \"rahul\",\n                \"email\": \"rahul@example.com\"\n            },\n            \"created_at\": \"2026-01-11T13:12:42.813248Z\",\n            \"updated_at\": \"2026-01-11T13:12:42.813273Z\"\n        },\n        {\n            \"id\": 30,\n            \"body\": \"Comment 2 on issue #12\",\n            \"author\": {\n                \"id\": 1,\n                \"username\": \"admin\",\n                \"email\": \"admin@example.com\"\n            },\n            \"created_at\": \"2026-01-11T13:12:42.815175Z\",\n            \"updated_at\": \"2026-01-11T13:12:42.815220Z\"\n        },\n        {\n            \"id\": 31,\n            \"body\": \"Comment 3 on issue #12\",\n            \"author\": {\n                \"id\": 4,\n                \"username\": \"rahul\",\n                \"email\": \"rahul@example.com\"\n            },\n            \"created_at\": \"2026-01-11T13:12:42.817780Z\",\n            \"updated_at\": \"2026-01-11T13:12:42.817806Z\"\n        }\n    ],\n    \"created_at\": \"2026-01-11T13:12:42.805185Z\",\n    \"updated_at\": \"2026-01-11T13:12:42.805204Z\",\n    \"resolved_at\": \"2026-01-04T13:12:42.804755Z\",\n    \"version\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "update-issue",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"updated_by\": \"1\",\r\n    \"title\": \"Login crash on iOS\",\r\n    \"status\": \"in_progress\",\r\n    \"version\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/issues/12/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"issues",
+								"12",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "version-mismatch-error",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"updated_by\": \"1\",\r\n    \"title\": \"Login crash on iOS\",\r\n    \"status\": \"in_progress\",\r\n    \"version\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/issues/12/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"issues",
+										"12",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jan 2026 15:30:30 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PATCH, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"version\": [\n        \"Version mismatch. Current version is 1\"\n    ]\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"updated_by\": \"1\",\r\n    \"title\": \"Login crash on iOS\",\r\n    \"status\": \"in_progress\",\r\n    \"version\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/issues/12/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"issues",
+										"12",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jan 2026 15:30:54 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PATCH, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "989"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 12,\n    \"title\": \"Login crash on iOS\",\n    \"description\": \"Generated by seed script.\",\n    \"status\": \"in_progress\",\n    \"priority\": \"high\",\n    \"creator\": {\n        \"id\": 3,\n        \"username\": \"jane\",\n        \"email\": \"jane@example.com\"\n    },\n    \"assignee\": null,\n    \"labels\": [\n        {\n            \"id\": 3,\n            \"name\": \"urgent\",\n            \"color\": \"#b60205\"\n        }\n    ],\n    \"comments\": [\n        {\n            \"id\": 29,\n            \"body\": \"Comment 1 on issue #12\",\n            \"author\": {\n                \"id\": 4,\n                \"username\": \"rahul\",\n                \"email\": \"rahul@example.com\"\n            },\n            \"created_at\": \"2026-01-11T13:12:42.813248Z\",\n            \"updated_at\": \"2026-01-11T13:12:42.813273Z\"\n        },\n        {\n            \"id\": 30,\n            \"body\": \"Comment 2 on issue #12\",\n            \"author\": {\n                \"id\": 1,\n                \"username\": \"admin\",\n                \"email\": \"admin@example.com\"\n            },\n            \"created_at\": \"2026-01-11T13:12:42.815175Z\",\n            \"updated_at\": \"2026-01-11T13:12:42.815220Z\"\n        },\n        {\n            \"id\": 31,\n            \"body\": \"Comment 3 on issue #12\",\n            \"author\": {\n                \"id\": 4,\n                \"username\": \"rahul\",\n                \"email\": \"rahul@example.com\"\n            },\n            \"created_at\": \"2026-01-11T13:12:42.817780Z\",\n            \"updated_at\": \"2026-01-11T13:12:42.817806Z\"\n        }\n    ],\n    \"created_at\": \"2026-01-11T13:12:42.805185Z\",\n    \"updated_at\": \"2026-01-13T15:30:54.516666Z\",\n    \"resolved_at\": \"2026-01-04T13:12:42.804755Z\",\n    \"version\": 2\n}"
+						}
+					]
+				},
+				{
+					"name": "add-comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"body\": \"Working on this. Need logs.\",\r\n  \"author_id\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/issues/12/comments/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"issues",
+								"12",
+								"comments",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"body\": \"Working on this. Need logs.\",\r\n  \"author_id\": 2\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/issues/12/comments/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"issues",
+										"12",
+										"comments",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jan 2026 16:04:28 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "195"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 67,\n    \"body\": \"Working on this. Need logs.\",\n    \"author\": {\n        \"id\": 2,\n        \"username\": \"john\",\n        \"email\": \"john@example.com\"\n    },\n    \"created_at\": \"2026-01-13T16:04:28.950303Z\",\n    \"updated_at\": \"2026-01-13T16:04:28.950336Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "replace-labels",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"label_ids\": [1, 2, 4]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/issues/12/labels/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"issues",
+								"12",
+								"labels",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"label_ids\": [1, 2, 4]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/issues/12/labels/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"issues",
+										"12",
+										"labels",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jan 2026 16:44:10 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "PUT, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "180"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Labels updated successfully\",\n    \"labels\": [\n        {\n            \"id\": 4,\n            \"name\": \"backend\",\n            \"color\": \"#5319e7\"\n        },\n        {\n            \"id\": 1,\n            \"name\": \"bug\",\n            \"color\": \"#d73a4a\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"feature\",\n            \"color\": \"#0e8a16\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "bulk-status-update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"issue_ids\": [36, 19, 9],\r\n  \"status\": \"closed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/issues/bulk-status/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"issues",
+								"bulk-status",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"issue_ids\": [36, 19, 9],\r\n  \"status\": \"closed\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/issues/bulk-status/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"issues",
+										"bulk-status",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jan 2026 16:48:19 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Successfully updated 3 issues\",\n    \"updated_count\": 3\n}"
+						}
+					]
+				},
+				{
+					"name": "import-issues-csv",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/sweekar/Downloads/issues_import.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/issues/import/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"issues",
+								"import",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/sweekar/Downloads/issues_import.csv"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/issues/import/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"issues",
+										"import",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jan 2026 16:58:46 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 10,\n    \"success\": 10,\n    \"failed\": 0,\n    \"errors\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "get-issues-timeline (bonus)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/issues/12/timeline",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"issues",
+								"12",
+								"timeline"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/issues/12/timeline",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"issues",
+										"12",
+										"timeline"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jan 2026 17:25:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "818"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 68,\n            \"field_name\": \"status\",\n            \"old_value\": \"closed\",\n            \"new_value\": \"in_progress\",\n            \"changed_by\": {\n                \"id\": 1,\n                \"username\": \"admin\",\n                \"email\": \"admin@example.com\"\n            },\n            \"changed_at\": \"2026-01-13T15:25:03.109767Z\"\n        },\n        {\n            \"id\": 67,\n            \"field_name\": \"title\",\n            \"old_value\": \"Issue #12: Sample closed high\",\n            \"new_value\": \"Login crash on iOS\",\n            \"changed_by\": {\n                \"id\": 1,\n                \"username\": \"admin\",\n                \"email\": \"admin@example.com\"\n            },\n            \"changed_at\": \"2026-01-13T15:25:03.095774Z\"\n        },\n        {\n            \"id\": 24,\n            \"field_name\": \"priority\",\n            \"old_value\": \"\",\n            \"new_value\": \"high\",\n            \"changed_by\": {\n                \"id\": 3,\n                \"username\": \"jane\",\n                \"email\": \"jane@example.com\"\n            },\n            \"changed_at\": \"2026-01-11T13:12:42.821515Z\"\n        },\n        {\n            \"id\": 23,\n            \"field_name\": \"status\",\n            \"old_value\": \"\",\n            \"new_value\": \"closed\",\n            \"changed_by\": {\n                \"id\": 3,\n                \"username\": \"jane\",\n                \"email\": \"jane@example.com\"\n            },\n            \"changed_at\": \"2026-01-11T13:12:42.819621Z\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "reports",
+			"item": [
+				{
+					"name": "get-latency",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/reports/latency/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"latency",
+								""
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "2026-01-01&to=2026-01-31",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/reports/latency/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"reports",
+										"latency",
+										""
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "2026-01-01&to=2026-01-31",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jan 2026 17:36:13 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total_resolved\": 2,\n    \"average_resolution_hours\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "get-top-assignees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/reports/top-assignees/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"top-assignees",
+								""
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/reports/top-assignees/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"reports",
+										"top-assignees",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 13 Jan 2026 17:09:48 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.11.14"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "829"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"assignee__id\": 4,\n        \"assignee__username\": \"rahul\",\n        \"assignee__email\": \"rahul@example.com\",\n        \"total_issues\": 9,\n        \"resolved_issues\": 1,\n        \"open_issues\": 1\n    },\n    {\n        \"assignee__id\": 2,\n        \"assignee__username\": \"john\",\n        \"assignee__email\": \"john@example.com\",\n        \"total_issues\": 5,\n        \"resolved_issues\": 0,\n        \"open_issues\": 2\n    },\n    {\n        \"assignee__id\": 3,\n        \"assignee__username\": \"jane\",\n        \"assignee__email\": \"jane@example.com\",\n        \"total_issues\": 4,\n        \"resolved_issues\": 1,\n        \"open_issues\": 1\n    },\n    {\n        \"assignee__id\": 6,\n        \"assignee__username\": \"arjun\",\n        \"assignee__email\": \"arjun@example.com\",\n        \"total_issues\": 4,\n        \"resolved_issues\": 0,\n        \"open_issues\": 1\n    },\n    {\n        \"assignee__id\": 5,\n        \"assignee__username\": \"neha\",\n        \"assignee__email\": \"neha@example.com\",\n        \"total_issues\": 4,\n        \"resolved_issues\": 1,\n        \"open_issues\": 1\n    },\n    {\n        \"assignee__id\": 1,\n        \"assignee__username\": \"admin\",\n        \"assignee__email\": \"admin@example.com\",\n        \"total_issues\": 2,\n        \"resolved_issues\": 0,\n        \"open_issues\": 1\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	]
+}
